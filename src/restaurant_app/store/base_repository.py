@@ -40,9 +40,9 @@ class BaseRepository(ABC):
         # we still need to do some work to make it behave in a correct way
         if session is not None:
             # we wrap the provided session into a context-manager
-            # as a result the derived repositories can work with the sesion
+            # as a result the derived repositories can work with the session
             # in the same way as with the session_factory
-            # which is implemented as a context-manager: @see SqlAlchemyDatbase.managed_session
+            # which is implemented as a context-manager: @see SqlAlchemyDatabase.managed_session
             self._session = SessionContextManager(session)
 
     def get_session(self) -> AbstractContextManager[Session]:

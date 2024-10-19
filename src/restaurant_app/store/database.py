@@ -10,9 +10,9 @@ mapper_registry = registry()
 Base = mapper_registry.generate_base()
 
 
-class SqlAlchemyDatbase:
+class SqlAlchemyDatabase:
     """
-    Setup SQLAlchemy with scoped sessions usable for a web-applicaton context
+    Setup SQLAlchemy with scoped sessions usable for a web-application context
     https://www.sqlalchemy.org/
     """
 

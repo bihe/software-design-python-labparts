@@ -78,12 +78,19 @@ class RestaurantRepository(BaseRepository):
         addr = address
         # an id was supplied, load the object from the db
         if address.id is not None:
-            addr = session.get(AddressEntity, address.id)
-            if addr is None:
+            find_address = session.get(AddressEntity, address.id)
+            if find_address is None:
                 # could not load the address from the database
                 # we just overwrite the address with a new object
                 addr = address
                 addr.id = None  # overwrite the id
+            else:
+                # overwrite the values based on the found item
+                addr = find_address
+                addr.street = address.street
+                addr.city = address.city
+                addr.country = address.country
+                addr.zip = address.zip
         else:
             # no existing reference to address
             addr = address

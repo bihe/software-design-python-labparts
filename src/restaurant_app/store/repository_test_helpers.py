@@ -16,7 +16,7 @@ def create_restaurant_data() -> RestaurantEntity:
     return res
 
 
-def get_database():
-    db = SqlAlchemyDatabase("sqlite://", False)
+def get_database(auto_commit=False):
+    db = SqlAlchemyDatabase("sqlite://", auto_commit=auto_commit)
     db.create_database()
     return db
